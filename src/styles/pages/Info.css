@@ -1,0 +1,100 @@
+.informationContainer {
+    display: flex;
+    justify-content: space-between;
+    padding-right: 32px;
+}
+
+.informationMain {
+    height: 50vh;
+    width: 55vw;
+    background-color: white;
+    border: 2px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.informationMain div {
+    padding: 32px;
+}
+
+.informationStats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.informationStats span:first-child {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.informationStats span:last-child {
+    font-size: 12px;
+}
+
+.informationGrid {
+
+}
+
+.grid {
+    margin: 0;
+    padding: 0;
+}
+
+.purchaseContainer {
+    height: 50vh;
+    width: 20vw;
+    background-color: white;
+    border: 2px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.purchaseContainer span:first-child {
+    font-weight: bold;
+    padding: 32px;
+}
+
+.purchaseContainer hr {
+    color: var(--border);
+    border: 2px solid var(--border);
+}
+
+.purchaseInformation {
+    padding-right: 32px;
+}
+
+.purchaseInformation div {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.purchaseQuantity {
+    width: 4vw;
+    height: 4vh;
+    background-color: var(--border);
+    border: 0;
+    border-radius: 10px;
+    text-align: right;
+    padding-right: 16px;
+    font-size: 16px;
+}
+
+.purchaseButton {
+    background-color: var(--primary);
+    margin: 0 16px;
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border-radius: 50px;
+    font-weight: bold;
+}
+
+.purchaseButton:hover {
+    cursor: pointer;
+    opacity: 0.75;
+}

@@ -10,8 +10,10 @@
 - Python 3.7+
 
 ### Instructions
+## *Using BASH*
 1. `pip install virtualenv`
-2. `virtualenv venv`
+2. `python -m virtualenv venv`
 3. `source venv/scripts/activate`
 4. `pip install -r requirements.txt`
-5. `uvicorn main:app --reload`
+5. `cd server`
+6. `uvicorn main:app --reload`

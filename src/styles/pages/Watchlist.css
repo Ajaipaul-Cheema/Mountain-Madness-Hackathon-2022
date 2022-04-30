@@ -1,0 +1,11 @@
+.watchlistContainer {
+    display: flex;
+}
+
+.mainWatchlistContent {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 16px;
+}
+

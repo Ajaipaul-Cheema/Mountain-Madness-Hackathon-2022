@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import '../styles/pages/Home.css';
+import '../styles/pages/Watchlist.css';
 import { useOutletContext } from 'react-router-dom'
 
 import Stock from '../components/Stock'
 
-const Home = () => {
+const Watchlist = () => {
 
     const [stocks, setStocks] = useState([])
     const [stockState, priceHistoryState] = useOutletContext()
@@ -15,9 +15,9 @@ const Home = () => {
     }, [stockState])
 
     return (
-        <div className={'homeContainer'}>
+        <div className={'watchlistContainer'}>
 
-            <div className={'mainHomeContent'}>
+            <div className={'mainWatchlistContent'}>
 
                 {stocks.map(item => <Stock priceHistory={priceHistoryState} key={item.Ticker} stock={item} />)}
 
@@ -28,4 +28,4 @@ const Home = () => {
 
 }
 
-export default Home   
+export default Watchlist   

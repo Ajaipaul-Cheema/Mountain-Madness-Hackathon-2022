@@ -1,0 +1,60 @@
+.stock {
+    height: 20vh;
+    width: 18vw;
+    background-color: white;
+    border: 2px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+}
+
+.stock:hover {
+    cursor: pointer;
+    opacity: 0.75;
+}
+
+.stockCol1, .stockCol2 {
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: bold;
+}
+
+.stockTicker div {
+    text-align: right;
+}
+
+.stockPrice {
+    font-size: 32px;
+}
+
+.bubble {
+    color: white;
+    width: 125px;
+    height: 30px;
+    border-radius: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    font-size: 12px;
+}
+
+.bubbleText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.stockStar {
+    z-index: 1000;
+    padding-right: 5px;
+    padding-top: 155px;
+    font-size: 20px;
+    color: black;
+}
+
+.stockStar:hover {
+    color: var(--primary);
+}
