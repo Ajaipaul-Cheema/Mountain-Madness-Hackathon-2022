@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Outlet, useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowTrendUp, faHome, faFolder, faEye } from '@fortawesome/free-solid-svg-icons'
+import { faArrowTrendUp, faHome, faFolder, faEye, faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 import functions from './functions'
 import './styles/index.css'
 import stockData from './stock.json'
@@ -66,19 +66,19 @@ const Layout = () => {
         <div className={'container'}>
             <div className={'leftNav'}>
                 <div className={'leftNavContent'}>
-                    <div className={'logo'}>
+                    <div className={'logo'} onClick={() => navigation('/')}>
                         <FontAwesomeIcon icon={faArrowTrendUp} /> StockWear
                     </div>
                     <div className={'navigationContent'}>
-                        <div className={'navigationItem active'} onClick={() => navigation('/')}>
+                        <div className={(location.pathname === '/' ? 'navigationItem active' : 'navigationItem')} onClick={() => navigation('/')}>
                             <span><FontAwesomeIcon icon={faHome} /></span>
                             <span>Home</span>
                         </div>
-                        <div className={'navigationItem'} onClick={() => navigation('/watchlist')}>
+                        <div className={(location.pathname === '/watchlist' ? 'navigationItem active' : 'navigationItem')} onClick={() => navigation('/watchlist')}>
                             <span><FontAwesomeIcon icon={faEye} /></span>
                             <span>Watchlist</span>
                         </div>
-                        <div className={'navigationItem'} onClick={() => navigation('/portfolio')}>
+                        <div className={(location.pathname === '/portfolio' ? 'navigationItem active' : 'navigationItem')} onClick={() => navigation('/portfolio')}>
                             <span><FontAwesomeIcon icon={faFolder} /></span>
                             <span>My Portfolio</span>
                         </div>
@@ -88,7 +88,12 @@ const Layout = () => {
             <div className={'mainContent'}>
                 <div className={'topNav'}>
                     <div className={'topNavContent'}>
-                        Home
+                        {
+                            location.pathname === '/watchlist' ? <div>Watchlist</div>
+                                : location.pathname === '/portfolio' ? <div>My Portfolio</div>
+                                    : location.pathname.startsWith('/info') ? <div><FontAwesomeIcon className={'backArrow'} onClick={() => navigation('/')} color={'#6AD29B'} icon={faArrowLeft} /> Stock Information</div>
+                                        : <div>Home</div>
+                        }
                     </div>
                     <div className={'topNavContentRight'}>
                         <div className={'portfolioValue'}>

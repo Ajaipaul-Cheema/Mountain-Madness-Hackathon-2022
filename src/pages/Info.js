@@ -16,11 +16,17 @@ const Info = () => {
     const [amount, setAmount] = useState(1)
     const [modalVisible, setModalVisible] = useState(false)
     const [alertVisible, setAlertVisible] = useState(false)
-    const [inventory, setInventory] = useState()
+    const [inventory, setInventory] = useState(null)
 
     const toggleModal = () => {
         setModalVisible(!modalVisible)
     }
+
+    useEffect(() => {
+        if (modalVisible === false && inventory !== null) {
+            window.location.reload()
+        }
+    }, [modalVisible])
 
     const purchase = () => {
         let portfolio = userPortfolio
