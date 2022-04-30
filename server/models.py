@@ -10,11 +10,20 @@ class Company(Base):
     ticker = Column(String)
     name = Column(String)
 
+    # One to Many (Inventory)
+    inventory_id = Column(Integer, ForeignKey('inventory.id')) 
+    inventory = relationship("Inventory", back_populates="company")
+    
 class Inventory(Base):
     __tablename__ = "inventory"
 
     id = Column(Integer, primary_key=True, index=True)
-    # relationships 
+
+    # Many To One (Portfolio)   
+    portfolio = relationship("Portfolio", back_populates="portfolio")
+    # Many To One (Company)   
+    company = relationship("Company", back_populates="company")
+
 
 class Portfolio(Base):
     __tablename__ = "portfolio"
@@ -22,6 +31,7 @@ class Portfolio(Base):
     id = Column(Integer, primary_key=True, index=True)
     money = Column(Integer)
 
+    # One to Many (Inventory)
+    inventory_id = Column(Integer, ForeignKey('inventory.id')) 
+    inventory = relationship("Inventory", back_populates="portfolio")
     
-    
-
