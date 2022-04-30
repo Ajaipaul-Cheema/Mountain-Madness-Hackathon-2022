@@ -11,7 +11,9 @@ const Watchlist = () => {
 
     useEffect(() => {
         setStocks([])
-        Object.keys(stockState).forEach(key => setStocks(prevState => [...prevState, stockState[key]]))
+        let watchList = JSON.parse(localStorage.getItem("watch"))
+        setStocks(watchList)
+        console.log(watchList, localStorage.getItem("watch"))
     }, [stockState])
 
     return (
