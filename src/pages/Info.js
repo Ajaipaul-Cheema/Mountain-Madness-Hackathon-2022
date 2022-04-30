@@ -40,7 +40,7 @@ const Info = () => {
                 <div className={'informationStats'}>
                     <span>{stock.Name}, {stock.Ticker}</span>
                     <span style={{ fontSize: '28px' }}>${stock.Price.toFixed(2)}</span>
-                    <span style={{color: (change >= 0 ? '#6AD29B' : '#F32013')}}>{change >= 0 ? '▲' : '▼'} ${diff.toFixed(2)} ({change.toFixed(2)}%)</span>
+                    {change !== 0 && <span style={{color: (change >= 0 ? '#6AD29B' : '#F32013')}}>{change >= 0 ? '▲' : '▼'} ${diff.toFixed(2)} ({change.toFixed(2)}%)</span>}
                 </div>
                 <div className={'informationGrid'}>
                     <img height={250} src={'https://i.imgur.com/UvWTzaA.png'} />
