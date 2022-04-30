@@ -1,0 +1,10 @@
+.homeContainer {
+    display: flex;
+}
+
+.mainHomeContent {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 16px;
+}

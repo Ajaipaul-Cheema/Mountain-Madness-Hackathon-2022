@@ -25,10 +25,10 @@ const randomNumberBetween = (min, max) => {
 }
 
 
-const calculateBuyingPower = (portfolio) => {
+const calculateBuyingPower = (portfolio, stocks) => {
     let value = portfolio.money;
     portfolio.inventory.forEach(item => {
-        value += item.price;
+        value += (stocks[item.stockName].Price * parseInt(item.amount, 10))
     })
     return value;
 }
