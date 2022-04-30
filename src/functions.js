@@ -1,49 +1,39 @@
-var buyingPower = 10000
-var portfolioValue = buyingPower
-var percentChange = 0
-const SETMAX = 2.5
-var purchasedProducts = []
+const updateStocks = (stocks) => {
 
-const changeInStockPrice = (stockPrice) => {
-  // Done Through Percentage Change
-  percentChange = (Math.random() * SETMAX)
-  var changeInPrice = (percentChange / 100) * stockPrice
+    let newStocks = {}
 
-  if (Math.floor(Math.random() * 10) >= 5) {
-    stockPrice = stockPrice + changeInPrice
-    portfolioValue += changeInPrice
-  } else {
-    if (stockPrice < 0) return;
-    stockPrice = stockPrice - changeInPrice
-    portfolioValue -= changeInPrice
-  }
+    Object.keys(stocks).forEach(key => {
+        let stock = stocks[key]
+        let change = 1 + (randomNumberBetween(-4, 4) / 100)
+        let oldPrice = stock.Price
+        stock.Price = oldPrice * change
+        newStocks[stock.Name] = stock
+    })
 
-  return stockPrice;
+    return newStocks
+
 }
 
-const buyingStock = (stockPrice) => {
-  if (buyingPower < 0) return
-  buyingPower -= stockPrice
-  portfolioValue -= stockPrice
+
+const percentDifference = (one, two) => {
+    return Math.abs(100 - two / one * 100).toFixed(10)
 }
 
-const sellingStock = (stockPrice) => {
-  if(stockPrice < 0) return
-  buyingPower += stockPrice
-  portfolioValue += stockPrice
+
+const randomNumberBetween = (min, max) => {
+    return min + Math.random() * (max - min)
 }
 
-const addStockInfo = (name, price) => {
-  purchasedProducts.push({
-    key:   name,
-    value: price
-});
-};
 
-function numberWithCommas(x) {
-  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+const calculateBuyingPower = (portfolio) => {
+    let value = portfolio.money;
+    portfolio.inventory.forEach(item => {
+        value += item.price;
+    })
+    return value;
 }
+
 
 export default {
-  changeInStockPrice, buyingStock, sellingStock, addStockInfo, buyingPower, portfolioValue, purchasedProducts, numberWithCommas
+    updateStocks, calculateBuyingPower, randomNumberBetween, percentDifference
 }
