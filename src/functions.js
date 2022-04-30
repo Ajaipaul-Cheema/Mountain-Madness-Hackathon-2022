@@ -31,8 +31,8 @@ const sellingStock = (stockPrice) => {
 };
 
 const addStockInfo = (name, price) => {
-  purchasedProducts.push({
-    key:   name,
-    value: price
-});
-};
+    purchasedProducts.push({
+        key:   name,
+        value: price
+    })
+}
