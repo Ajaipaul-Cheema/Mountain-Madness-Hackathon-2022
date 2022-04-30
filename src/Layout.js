@@ -17,6 +17,7 @@ const Layout = () => {
     const location = useLocation()
 
     useEffect(() => {
+        //Object.keys(localStorage).forEach(key => {localStorage.removeItem(key)})
         const stocks = localStorage.getItem("stocks")
         let portfolio = localStorage.getItem("portfolio")
         let priceHistory = localStorage.getItem("priceHistory")
@@ -41,7 +42,7 @@ const Layout = () => {
         setStockState(JSON.parse(localStorage.getItem("stocks")))
         let newPriceHistory = JSON.parse(localStorage.getItem("priceHistory"))
         setPriceHistoryState(newPriceHistory)
-        //Object.keys(localStorage).forEach(key => localStorage.removeItem(key))
+        //Object.keys(localStorage).forEach(key => {localStorage.removeItem(key)})
         setInterval(updatePrices, 10000)
     }, [])
 
@@ -92,11 +93,11 @@ const Layout = () => {
                     <div className={'topNavContentRight'}>
                         <div className={'portfolioValue'}>
                             <div className={'valueTitle'}>Portfolio Value</div>
-                            <div>${functions.calculateBuyingPower(userPortfolio).toLocaleString()}</div>
+                            <div>${functions.calculateBuyingPower(userPortfolio, stockState).toLocaleString()}</div>
                         </div>
                         <div className={'buyingPower'}>
                             <div className={'valueTitle'}>Buying Power</div>
-                            <div>${money.toLocaleString()}</div>
+                            <div>${userPortfolio.money.toLocaleString()}</div>
                         </div>
                     </div>
                 </div>
