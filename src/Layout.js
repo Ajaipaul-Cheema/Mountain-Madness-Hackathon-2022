@@ -101,7 +101,7 @@ const Layout = () => {
                     </div>
                 </div>
                 <div className={'content'}>
-                    <Outlet context={[stockState, priceHistoryState]} />
+                    <Outlet context={[stockState, priceHistoryState, userPortfolio, setUserPortfolio]} />
                 </div>
             </div>
         </div>

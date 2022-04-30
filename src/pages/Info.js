@@ -2,15 +2,26 @@ import React, { useEffect, useState } from 'react';
 import '../styles/pages/Info.css';
 import { useOutletContext, useParams } from 'react-router-dom'
 import functions from '../functions'
+import Modal from '../components/Modal'
 
 
 const Info = () => {
 
     let { id } = useParams()
     const [stock, setStock] = useState({})
-    const [stockState, priceHistoryState] = useOutletContext()
+    const [stockState, priceHistoryState, userPortfolio, setUserPortfolio] = useOutletContext()
     const [change, setChange] = useState(0)
     const [diff, setDiff] = useState(0)
+    const [amount, setAmount] = useState(1)
+    const [modalVisible, setModalVisible] = useState(false)
+
+    const toggleModal = () => {
+        setModalVisible(!modalVisible)
+    }
+
+    const purchase = () => {
+        toggleModal()
+    }
 
     useEffect(() => {
         Object.keys(stockState).forEach(key => {
@@ -36,6 +47,7 @@ const Info = () => {
 
     return (
         <div className={'informationContainer'}>
+            {modalVisible && <Modal visibilityFunction={toggleModal} />}
             <div className={'informationMain'}>
                 <div className={'informationStats'}>
                     <span>{stock.Name}, {stock.Ticker}</span>
@@ -45,6 +57,16 @@ const Info = () => {
                 <div className={'informationGrid'}>
                     <img height={250} src={'https://i.imgur.com/UvWTzaA.png'} />
                 </div>
+            </div>
+            <div className={'purchaseContainer'}>
+                <span>Purchase</span>
+                <hr/>
+                <div className={'purchaseInformation'}>
+                    <div><span>Amount: </span> <span><input onChange={event => setAmount(event.target.value)} defaultValue={1} className={'purchaseQuantity'} type={'number'} min={1} /></span></div>
+                    <div><span>Cost: </span> <span>${(amount * stock.Price).toFixed(2)}</span></div>
+                    <div><span>Remaining Money:</span> <span>${(userPortfolio.money - (amount * stock.Price)).toFixed(2)}</span></div>
+                </div>
+                <div className={'purchaseButton'} onClick={purchase}>Purchase Stock</div>
             </div>
         </div>
     )
