@@ -1,10 +1,18 @@
-import React from 'react'
+import React from 'react';
+import '../styles/pages/Home.css';
 
 
 const Home = () => {
 
     return (
-        <p>Home</p>
+        <div className={'homeContainer'}>
+
+            <div className={'mainHomeContent'}>
+
+
+            </div>
+
+        </div>
     )
 
 }
