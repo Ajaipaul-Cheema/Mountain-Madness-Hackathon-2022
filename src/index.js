@@ -1,5 +1,5 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client';
+import ReactDOM from "react-dom";
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Layout from './Layout';
@@ -8,7 +8,7 @@ import Info from './pages/Info';
 import Watchlist from './pages/Watchlist';
 import Portfolio from './pages/Portfolio';
 
-const App = () => {
+export default function App() {
 
     return (
         <BrowserRouter basename={"/"} >
@@ -26,5 +26,4 @@ const App = () => {
 }
 
 
-createRoot(document.getElementById('root')).render(<App />);
-export default App;
+ReactDOM.render(<App />, document.getElementById("root"));
