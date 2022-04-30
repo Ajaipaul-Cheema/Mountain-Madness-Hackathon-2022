@@ -10,6 +10,7 @@
 - Python 3.7+
 
 ### Instructions
+## *Using BASH*
 1. `pip install virtualenv`
 2. `python -m virtualenv venv`
 3. `source venv/scripts/activate`
