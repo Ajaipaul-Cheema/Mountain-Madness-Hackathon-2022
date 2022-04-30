@@ -4,16 +4,13 @@
 - Haris Ahmad (mha149@sfu.ca)
 - Inderpreet Rangi (isr@sfu.ca)
 
-# Backend Startup Instructions
+# Startup Instructions
 
 ### Requirements
-- Python 3.7+
+- Node v16.13.2+
+- Npm v8.1.2+
 
 ### Instructions
-## *Using BASH*
-1. `pip install virtualenv`
-2. `python -m virtualenv venv`
-3. `source venv/scripts/activate`
-4. `pip install -r requirements.txt`
-5. `cd server`
-6. `uvicorn main:app --reload`
+1. Clone Repository
+2. `npm install`
+3. `npm start`

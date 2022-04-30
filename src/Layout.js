@@ -74,10 +74,6 @@ const Layout = () => {
                             <span><FontAwesomeIcon icon={faHome} /></span>
                             <span>Home</span>
                         </div>
-                        <div className={(location.pathname === '/watchlist' ? 'navigationItem active' : 'navigationItem')} onClick={() => navigation('/watchlist')}>
-                            <span><FontAwesomeIcon icon={faEye} /></span>
-                            <span>Watchlist</span>
-                        </div>
                         <div className={(location.pathname === '/portfolio' ? 'navigationItem active' : 'navigationItem')} onClick={() => navigation('/portfolio')}>
                             <span><FontAwesomeIcon icon={faFolder} /></span>
                             <span>My Portfolio</span>
@@ -89,8 +85,7 @@ const Layout = () => {
                 <div className={'topNav'}>
                     <div className={'topNavContent'}>
                         {
-                            location.pathname === '/watchlist' ? <div>Watchlist</div>
-                                : location.pathname === '/portfolio' ? <div>My Portfolio</div>
+                            location.pathname === '/portfolio' ? <div>My Portfolio</div>
                                     : location.pathname.startsWith('/info') ? <div><FontAwesomeIcon className={'backArrow'} onClick={() => navigation('/')} color={'#6AD29B'} icon={faArrowLeft} /> Stock Information</div>
                                         : <div>Home</div>
                         }

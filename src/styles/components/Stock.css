@@ -58,3 +58,7 @@
 .stockStar:hover {
     color: var(--primary);
 }
+
+.stockChart {
+    margin-top: 8px;
+}
