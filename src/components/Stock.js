@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faApple } from '@fortawesome/free-brands-svg-icons';
-import { library } from '@fortawesome/fontawesome-svg-core'
 import { faStar as fasFaStar } from '@fortawesome/free-solid-svg-icons'
 import { faStar as farFaStar } from '@fortawesome/free-regular-svg-icons'
 import '../styles/components/Stock.css';
@@ -25,14 +24,14 @@ const Stock = ({stock, priceHistory}) => {
     }
 
     const addToWatchlist = () => {
-
+        
+        setWatchlisted(true)
+        
         if(starIcon === farFaStar){
             setStarIcon(fasFaStar)
-            setWatchlisted(true)
             // Add to watchlist
         } else {
             setStarIcon(farFaStar)
-            setWatchlisted(true)
             // Remove from watchlist
         }
     }
