@@ -2,17 +2,39 @@ import React, { useEffect, useState } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faApple } from '@fortawesome/free-brands-svg-icons';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faStar as fasFaStar } from '@fortawesome/free-solid-svg-icons'
+import { faStar as farFaStar } from '@fortawesome/free-regular-svg-icons'
 import '../styles/components/Stock.css';
 import functions from '../functions';
-
 
 const Stock = ({stock, priceHistory}) => {
 
     const [change, setChange] = useState(0)
+    const [starIcon, setStarIcon] = useState(farFaStar)
+    const [isWatchlisted, setWatchlisted] = useState(false)
 
     const navigation = useNavigate()
-    const navigate = () => {
-        navigation('/info/' + stock.Ticker)
+    const navigate = async () => {
+        if(isWatchlisted) {
+            setWatchlisted(false)
+        }
+        else {
+            navigation('/info/' + stock.Ticker)
+        }
+    }
+
+    const addToWatchlist = () => {
+
+        if(starIcon === farFaStar){
+            setStarIcon(fasFaStar)
+            setWatchlisted(true)
+            // Add to watchlist
+        } else {
+            setStarIcon(farFaStar)
+            setWatchlisted(true)
+            // Remove from watchlist
+        }
     }
 
     useEffect(() => {
@@ -45,7 +67,10 @@ const Stock = ({stock, priceHistory}) => {
 
                 </div>
             </div>
-
+        
+            <div className={'stockStar'} onClickCapture={addToWatchlist}>
+                <span><FontAwesomeIcon icon={starIcon} /></span>
+            </div>
         </div>
     )
 

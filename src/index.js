@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from './Layout';
 import Home from './pages/Home';
 import Info from './pages/Info';
+import Watchlist from './pages/Watchlist';
 
 const App = () => {
 
@@ -14,6 +15,7 @@ const App = () => {
                 <Route path={"/"} element={<Layout />} >
                     <Route index element={<Home />} />
                     <Route path={"info/:id"} element={<Info />} />
+                    <Route path={"watchlist"} element={<Watchlist />} />
                 </Route>
             </Routes>
         </BrowserRouter>

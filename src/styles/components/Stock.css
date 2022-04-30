@@ -46,3 +46,15 @@
     align-items: center;
     gap: 8px;
 }
+
+.stockStar {
+    z-index: 1000;
+    padding-right: 5px;
+    padding-top: 155px;
+    font-size: 20px;
+    color: black;
+}
+
+.stockStar:hover {
+    color: var(--primary);
+}
