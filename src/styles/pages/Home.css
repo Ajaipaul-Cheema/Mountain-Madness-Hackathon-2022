@@ -3,8 +3,8 @@
 }
 
 .mainHomeContent {
-    height: 20vh;
-    width: 20vw;
-    background-color: white;
-    border: 2px solid var(--border);
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    gap: 16px;
 }

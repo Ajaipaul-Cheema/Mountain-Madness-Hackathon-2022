@@ -1,0 +1,40 @@
+.informationContainer {
+    display: flex;
+}
+
+.informationMain {
+    height: 50vh;
+    width: 55vw;
+    background-color: white;
+    border: 2px solid var(--border);
+    display: flex;
+    flex-direction: column;
+}
+
+.informationMain div {
+    padding: 32px;
+}
+
+.informationStats {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.informationStats span:first-child {
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.informationStats span:last-child {
+    font-size: 12px;
+}
+
+.informationGrid {
+
+}
+
+.grid {
+    margin: 0;
+    padding: 0;
+}

@@ -26,7 +26,8 @@
 
 .topNav {
     height: 10vh;
-    width: 85vw;
+    width: 100%;
+    min-width: 85vw;
     background-color: white;
     border-bottom: 2px solid var(--border);
     display: flex;
@@ -61,7 +62,7 @@
 
 .leftNav {
     height: 100vh;
-    width: 15vw;
+    width: 30vw;
     background-color: white;
     border-right: 2px solid var(--border);
     display: flex;
@@ -83,6 +84,7 @@
 
 .logo:hover {
     cursor: pointer;
+    opacity: 0.75;
 }
 
 .navigationContent {
@@ -124,8 +126,14 @@
 
 .navigationItem span:last-child {
     padding-left: 20px;
+    color: black;
 }
 
 .navigationItem:hover {
     cursor: pointer;
+    opacity: 0.75;
+}
+
+a {
+    text-decoration: none;
 }
